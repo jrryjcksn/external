@@ -13,23 +13,3 @@ spec:
   values:
     image: v2-preview
   interval: 1m0s
-
----
-
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
-metadata:
-  name: ww-gitops
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  ref:
-    branch: jlw-helm-patch
-  secretRef:
-    name: flux-system
-  url: ssh://git@github.com/weaveworks/weave-gitops
-  ignore: |
-    # exclude all
-    /*
-    # include charts directory
-    !/charts/
