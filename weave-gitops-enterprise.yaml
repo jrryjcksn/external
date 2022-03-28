@@ -30,7 +30,7 @@ spec:
   values:
     config:
       capi:
-        repositoryURL: git@github.com:jrryjcksn/external.git
+        repositoryURL: https://github.com/jrryjcksn/external.git
       cluster:
         name: kind-kind
 status: {}
