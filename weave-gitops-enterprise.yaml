@@ -25,12 +25,12 @@ spec:
         kind: HelmRepository
         name: weave-gitops-enterprise-charts
         namespace: flux-system
-      version: 0.0.17
+      version: 0.0.18
   interval: 1m0s
   values:
     config:
       capi:
-        repositoryURL: https://github.com/jrryjcksn/external.git
+        repositoryURL: git@github.com:jrryjcksn/external.git
       cluster:
         name: kind-kind
 status: {}
