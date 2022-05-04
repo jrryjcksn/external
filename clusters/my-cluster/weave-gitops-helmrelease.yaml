@@ -1,0 +1,75 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ww-gitops
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: weave-gitops
+      sourceRef:
+        kind: HelmRepository
+        name: ww-gitops
+  interval: 1m0s
+  values:
+    MTLS: false
+    OIDC:
+      clientID: ""
+      clientSecret: ""
+      issuerURL: ""
+      redirectURL: ""
+      tokenDuration: 60m
+    adminUser:
+      create: false
+      createSecret: true
+      passwordHash: $2a$10$HB9xqVb1/2jLSrjF3aZv4.LI/tXX5lyaVRTe9F.gjgReWQe1fYUpC
+      username: gitops-test-user
+    affinity: {}
+    enableLogin: true
+    fullnameOverride: ""
+    host: 0.0.0.0
+    image:
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/weaveworks/wego-app
+      tag: v0.7.0
+    imagePullSecrets: []
+    ingress:
+      annotations: {}
+      className: ""
+      enabled: false
+      hosts:
+      - host: chart-example.local
+        paths:
+        - path: /
+          pathType: ImplementationSpecific
+      tls: []
+    logLevel: info
+    nameOverride: ""
+    nodeSelector: {}
+    podAnnotations: {}
+    podSecurityContext: {}
+    rbac:
+      create: true
+      impersonationResourceNames: []
+      impersonationResources:
+      - users
+      - groups
+      viewSecrets: []
+    replicaCount: 1
+    resources: {}
+    securityContext: {}
+    serverTLS:
+      enable: false
+    service:
+      annotations: {}
+      create: true
+      port: 9001
+      type: ClusterIP
+    serviceAccount:
+      annotations: {}
+      create: true
+      name: ""
+    tolerations: []
+    watcherPort: 9443
+
