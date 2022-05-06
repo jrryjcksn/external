@@ -24,7 +24,7 @@ spec:
     fullnameOverride: ""
     host: 0.0.0.0
     image:
-      pullPolicy: IfNotPresent
+      pullPolicy: Always
       repository: jrryjcksn/gserv
       tag: v0.7.0
     imagePullSecrets: []
