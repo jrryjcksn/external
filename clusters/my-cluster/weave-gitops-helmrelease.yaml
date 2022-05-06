@@ -13,15 +13,9 @@ spec:
         name: ww-gitops
   interval: 1m0s
   values:
-    MTLS: false
-    OIDC:
-      clientID: ""
-      clientSecret: ""
-      issuerURL: ""
-      redirectURL: ""
-      tokenDuration: 60m
     adminUser:
       create: false
+      createClusterRole: true
       createSecret: true
       passwordHash: $2a$10$HB9xqVb1/2jLSrjF3aZv4.LI/tXX5lyaVRTe9F.gjgReWQe1fYUpC
       username: gitops-test-user
@@ -32,7 +26,7 @@ spec:
     image:
       pullPolicy: IfNotPresent
       repository: jrryjcksn/gserv
-      tag: v0.7.0
+      tag: v0.8.0
     imagePullSecrets: []
     ingress:
       annotations: {}
@@ -59,8 +53,6 @@ spec:
     replicaCount: 1
     resources: {}
     securityContext: {}
-    serverTLS:
-      enable: false
     service:
       annotations: {}
       create: true
